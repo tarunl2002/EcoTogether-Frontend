@@ -30,6 +30,7 @@ const Register = () => {
                         required
                     />
                 </div>
+                
                 <div className="form-group">
                     <label>Password</label>
                     <input

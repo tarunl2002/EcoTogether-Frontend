@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useInitiative } from '../context/InitiativeContext';
+import mapboxgl from 'mapbox-gl';
 
 const InitiativeForm = () => {
     const [formData, setFormData] = useState({

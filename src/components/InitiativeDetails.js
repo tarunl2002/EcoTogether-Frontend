@@ -28,6 +28,10 @@ const InitiativeDetails = () => {
         return <div>Loading...</div>;
     }
 
+    if (!initiative) {
+        return <div>Initiative not found</div>;
+    }
+
     return (
         <div className="container mt-5">
             <h2>{initiative.name}</h2>
@@ -35,7 +39,7 @@ const InitiativeDetails = () => {
             <h3>Participants</h3>
             <ul>
                 {initiative.participants.map(participant => (
-                    <li key={participant._id}>{participant.name}</li>
+                    <li key={participant._id}>{participant.email}</li>
                 ))}
             </ul>
         </div>
