@@ -1,3 +1,5 @@
+// src/components/Navbar.js
+
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
@@ -15,6 +17,9 @@ const Navbar = () => {
                             <>
                                 <li className="nav-item">
                                     <span className="nav-link">Welcome, {user.email}</span>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/profile">Profile</Link>
                                 </li>
                                 <li className="nav-item">
                                     <button className="btn btn-link nav-link" onClick={logout}>Logout</button>

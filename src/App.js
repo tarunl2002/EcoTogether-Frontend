@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, BrowserRouter, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './context/AuthContext';
+import { ProfileProvider } from './context/ProfileContext';
 import Register from './components/Register';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Profile from './components/Profile';
 import { useContext } from 'react';
 
 const App = () => {
@@ -16,11 +18,18 @@ const App = () => {
               <Routes>
                 <Route path="/register" Component={Register} />
                 <Route path="/login" Component={Login} />
-                <Route path="/" render={() => (
+                <Route path="/profile" element={
+                            <ProtectedRoute>
+                                <ProfileProvider>
+                                    <Profile />
+                                </ProfileProvider>
+                            </ProtectedRoute>
+                        } />
+                        <Route path="/" element={
                             <ProtectedRoute>
                                 <Home />
                             </ProtectedRoute>
-                        )} />
+                        } />
               </Routes>
             </BrowserRouter>
         </AuthProvider>
